@@ -1,9 +1,10 @@
 import './App.css';
-import {Battlefild} from './components/battlefield'
+import {First} from './FirstScreen';
+
 function App() {
   return (
     <div className="App">
-      <Battlefild />
+      <First />
     </div>
   );
 }
