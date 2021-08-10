@@ -167,3 +167,8 @@
     background-position: 500%;
   }
 }
+.unmute-opening{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
