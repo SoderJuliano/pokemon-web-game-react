@@ -20,6 +20,7 @@ const First = () =>{
             <div>
                 {keeping()}
                 <p onClick={()=>{skip(1)}} className="presstoskip">Click Here For Skip</p>
+                <p className="message">Are you ready?</p>
             </div>
         )
     }

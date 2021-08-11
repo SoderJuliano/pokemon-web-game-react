@@ -13,16 +13,19 @@ const Attacks = ({triggerParentUpdate}) =>{
         if(attacking==='thundershock'){
             triggerParentUpdate('thundershock')  
             setTimeout(()=>{setattack('none')
+            document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },3200)
         }else if(attacking==='agility'){
             triggerParentUpdate('agility')  
             setTimeout(()=>{setattack('none')
+            document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },1000)
         }else if(attacking==='tackle'){
             triggerParentUpdate('tackle')  
             setTimeout(()=>{setattack('none')
+            document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },2000)
         }

@@ -188,3 +188,16 @@
   top: 10px;
   left: 10px;
 }
+.message{
+  z-index: 2;
+  background-color: blanchedalmond;
+  height: auto;
+  width: 180px;
+  word-break: keep-all;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  border-radius: 25px;
+  border: black solid 2px;
+  display: none;
+}
