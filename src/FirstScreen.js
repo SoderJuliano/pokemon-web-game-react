@@ -1,5 +1,5 @@
 import {Battlefild} from './components/battlefield'
-import React, {Component, useState} from 'react'
+import React, {useState} from 'react'
 import { Abertura } from './components/opening'
 
 const First = () =>{
