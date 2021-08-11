@@ -36,14 +36,30 @@
     transform: rotate(360deg);
   }
 }
-.field{
-  background-color: rgb(182, 221, 255);
-  width: 100vw;
-  height: 100vh;
+@media (min-width: 1001px) {
+  .field{
+    background-color: rgb(182, 221, 255);
+    width: 75%;
+    height: 100vh;
+    border: black solid 2px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1000px) {
+  .field{
+    background-color: rgb(182, 221, 255);
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+  }
 }
 .pokemon img{
   width: 150px;
   height: 150px;
+}
+.attackgif{
+  z-index: 999;
 }
 .pokemon2 img{
   width: 150px;
@@ -67,7 +83,7 @@
 }
 .center{
   height: 150px;
-  width: 100vw;
+  width: 100%;
   background-color: aquamarine;
 }
 .talk {
