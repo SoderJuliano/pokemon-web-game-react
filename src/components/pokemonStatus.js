@@ -34,7 +34,7 @@ const PokeStatus = ({pokemon2, pokemon}) =>{
                     </p>
                     <div className="insidepokestatus">
                         <CgPokemon className='icon' size='15px'/>
-                        <span>HP - {pokemon.Life}</span>
+                        <span id="pokemonenemyHP">HP - {pokemon.Life}</span>
                     </div>
                 </div>
                 <div className='pokestatus2'>

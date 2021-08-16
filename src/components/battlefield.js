@@ -12,11 +12,12 @@ import themesong from '../media/pkmsong.mp3'
 import Hit from '../media/explosion.gif'
 import buff from '../img/arrowup.gif'
 import {PokeStatus} from './pokemonStatus'
+import pikachudefeated from '../img/pikachudefeated.png'
 
 const Battlefild = () => {
 
     const [pikachuSay] = useSound(sayPikachu)
-    const [pokemon, setStatus] = useState({
+    const [pokemon] = useState({
         Name: 'Pikachu',
         Id: 25,
         Type: 'eletric',
@@ -30,7 +31,7 @@ const Battlefild = () => {
         Def: 117,
         Gender: 'male'
     })
-    const [pokemonenemy, setStatusEnemy] = useState({
+    const [pokemonenemy] = useState({
         Name: 'Pikachu',
         Id: 25,
         Type: 'eletric',
@@ -54,7 +55,7 @@ const Battlefild = () => {
                 <div className="pokemon2">
                     <img onClick={pikachuSay} src={pikachu2} alt="" />
                     <div className="talk">
-                        <p>My turn!</p>
+                        <p id='talkMyPokemon'>My turn!</p>
                     </div>
                     <img className='buff' src={buff} alt='buffed' />
                    {myTurn()}
@@ -65,19 +66,33 @@ const Battlefild = () => {
     
     const pokemonEnemyRender = () =>{
 
-        if(pokemonenemy.Name==="Pikachu"){
+        if(pokemonenemy.Name==="Pikachu" && pokemonenemy.Life>0){
             return(
 
                 <div className="pokemon">
                     <div className="talk2">
-                        <p>My turn!</p>
+                        <p id='talkEmenyPokemon'>My turn!</p>
                     </div>
                     <img src={pikachu} alt="pokemon" />
                     <img className='hitpkm1' src={Hit} alt="ought!" />
                 </div>
 
             )
-        }else{
+        }else if(pokemonenemy.Name==="Pikachu" && pokemonenemy.Life<=0){
+            return(
+
+                <div className="pokemon">
+                    <div className="talk2">
+                        <p>My turn!</p>
+                    </div>
+                    <img src={pikachudefeated} alt="pokemon" />
+                    <img className='hitpkm1' src={Hit} alt="ought!" />
+                </div>
+
+            )
+        }
+        
+        else{
             return(
                 <p>Waiting pokemon</p>
             )
@@ -90,7 +105,10 @@ const Battlefild = () => {
 
     const myTurn = () =>{
         if(shift==2){
-            return  <Attacks triggerParentUpdate = {updatePageState}/>
+            return  <Attacks triggerParentUpdate = {updatePageState} 
+            pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
+            pokemonenemy = {pokemonenemy}
+            />
         }else{
 
         }
@@ -113,12 +131,23 @@ const Battlefild = () => {
             document.getElementsByClassName('pokemon2')[0].style.display = 'none'
             return <img className='attackgif' src={pikachuTacle} alt="tacke!!" />
         }else{
-            return <span>wainting your moves</span>
+            return <span>wainting next moves</span>
         }
     }
     const updatePageState = (state) => {
         setAttack(state);
     } 
+    const updatePkELife = (state) =>{
+        console.log(state)
+        pokemonenemy.Life = (pokemonenemy.Life-state)
+        //sethit(1)
+        if(pokemonenemy.Life<=0){
+            document.getElementsByClassName('hitpkm1')[0].style.display = 'block'
+            document.getElementsByClassName('message')[0].textContent = 'Yes!! We Win!'
+            document.getElementsByClassName('talk2')[0].style.display = 'block'
+            document.getElementById('talkEmenyPokemon').textContent = 'Pika.....chu.. X.X' 
+        }
+    }
     const main = () => {
         return(
             <div>
@@ -130,7 +159,7 @@ const Battlefild = () => {
                     {renderPokemon()}
                     <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
             </div>
-            <audio controls autoplay='true' muted={false}>
+            <audio controls autoPlay={false} muted={false}>
                     <source src={themesong} type="audio/ogg" />
             </audio>
         </div>
