@@ -11,12 +11,13 @@ import pikachuTacle from '../media/pikachuTacle.gif'
 import themesong from '../media/pkmsong.mp3'
 import Hit from '../media/explosion.gif'
 import buff from '../img/arrowup.gif'
+import {PokeStatus} from './pokemonStatus'
 
 const Battlefild = () => {
 
     const [pikachuSay] = useSound(sayPikachu)
     const [pokemon, setStatus] = useState({
-        Name: 'pikachu',
+        Name: 'Pikachu',
         Id: 25,
         Type: 'eletric',
         Level: 100,
@@ -29,12 +30,26 @@ const Battlefild = () => {
         Def: 117,
         Gender: 'male'
     })
-
+    const [pokemonenemy, setStatusEnemy] = useState({
+        Name: 'Pikachu',
+        Id: 25,
+        Type: 'eletric',
+        Level: 100,
+        HP: 2110,
+        Life: 2110,
+        SpA: 199,
+        SpD: 136,
+        Spe: 206,
+        Atk: 131,
+        Def: 117,
+        Gender: 'famale'
+    })
     const [hit , sethit] = useState(0)
     document.getElementsByClassName('message')[0].style.display = 'block'
+   
     const renderPokemon = () =>{
 
-        if(pokemon.Name==='pikachu'){
+        if(pokemon.Name==='Pikachu'){
             return(
                 <div className="pokemon2">
                     <img onClick={pikachuSay} src={pikachu2} alt="" />
@@ -48,6 +63,27 @@ const Battlefild = () => {
         }
     }
     
+    const pokemonEnemyRender = () =>{
+
+        if(pokemonenemy.Name==="Pikachu"){
+            return(
+
+                <div className="pokemon">
+                    <div className="talk2">
+                        <p>My turn!</p>
+                    </div>
+                    <img src={pikachu} alt="pokemon" />
+                    <img className='hitpkm1' src={Hit} alt="ought!" />
+                </div>
+
+            )
+        }else{
+            return(
+                <p>Waiting pokemon</p>
+            )
+        }
+
+    }
     
     const [shift, setShift] = useState(2)
     const [attack, setAttack] = useState('none')
@@ -87,17 +123,12 @@ const Battlefild = () => {
         return(
             <div>
             <div className="field">
-                <div className="pokemon">
-                    <div className="talk2">
-                        <p>My turn!</p>
-                    </div>
-                    <img src={pikachu} alt="pokemon" />
-                    <img className='hitpkm1' src={Hit} alt="ought!" />
-                </div>
+               {pokemonEnemyRender()}
                 <div className="center">
                     {action()}
                 </div>
                     {renderPokemon()}
+                    <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
             </div>
             <audio controls autoplay='true' muted={false}>
                     <source src={themesong} type="audio/ogg" />

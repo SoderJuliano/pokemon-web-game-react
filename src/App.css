@@ -64,7 +64,7 @@
     margin-right: 40%;
   }
   .pokemon{
-    margin-left: 45%;
+    margin-left: 50%;
     margin-top: 50px;
     display: flex;
     width: 350px;
@@ -73,6 +73,10 @@
   .center{
     height: 150px;
     width: 100%;
+  }
+  .hitpkm1{
+    position: absolute;
+    left: 46%;
   }
 }
 @media (max-width: 1000px) {
@@ -108,6 +112,10 @@
     width: 350px;
     height: 150px;
   }
+  .hitpkm1{
+    position: absolute;
+    left: 40%;
+  }
 }
 .pokemon img{
   width: 150px;
@@ -125,10 +133,7 @@
   width: 150px;
   height: 150px;
 }
-.hitpkm1{
-  position: absolute;
-  left: 40%;
-}
+
 .talk {
   display: none;
   width: 120px;
@@ -250,4 +255,52 @@
 }
 .hitpkm1{
   display: none;
+}
+.pokestatus1{
+  display: block;
+  width: 160px;
+  height: 80px;
+  z-index: 100;
+  background-color: rgba(245, 245, 245, 0.292);
+  position: absolute;
+  bottom: 55%;
+  right: 33%;
+  border-radius: 55px 10px;
+  justify-content: space-between;
+  padding: 2px;
+  box-shadow: -2px -2px 12px 1px;
+  text-align: start;
+}
+.pokestatus2{
+  display: block;
+  width: 160px;
+  height: 80px;
+  z-index: 100;
+  background-color: rgba(245, 245, 245, 0.292);
+  position: absolute;
+  bottom: 10%;
+  left: 28%;
+  border-radius: 10px 50px;
+  justify-content: space-between;
+  padding: 2px;
+  box-shadow: -2px -2px 12px 1px;
+  text-align: start;
+}
+.pokestatus2 .icon{
+  margin-left: 10%;
+}
+.pokestatus2 span{
+  margin-left: 10px;
+}
+.insidepokestatus2 span{
+  margin-left: 10px;
+}
+.pokestatus1 .icon{
+  margin-left: 5%;
+}
+.pokestatus1 span{
+  margin-left: 10px;
+}
+.insidepokestatus1 span{
+  margin-left: 10px;
 }
