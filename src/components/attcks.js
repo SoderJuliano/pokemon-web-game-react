@@ -5,8 +5,7 @@ import sayAttackPikachu from '../media/pikachu-attack.mp3'
 import sayThunderAttackPikachu from '../media/pikachuThunderAttack.mp3'
 import poiin from "../media/poiin.m4a"
 
-const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon, pokemonenemy}) =>{
-    console.log(pokemonenemy)
+const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
     const [bntsonud] = useSound(poiin)
     const [pikachuAttacksay] = useSound(sayAttackPikachu)
     const [pikachuThundersay] = useSound(sayThunderAttackPikachu)
@@ -26,7 +25,7 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon, pokemonenemy
             setchanged(false)
             att = (mypokemon.Atk+mypokemon.Spe)+40
         }
-        console.log("att"+att)
+        console.log("att > "+att)
         return att
     }
     const showBtn = () =>{
@@ -41,18 +40,18 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon, pokemonenemy
             triggerParentUpdate('thundershock')  
             setTimeout(()=>{
                 document.getElementsByClassName('hitpkm1')[0].style.display = 'block'
-                pokemonNewStatus(newLife())
             },2500)
             setTimeout(()=>{
                 document.getElementsByClassName('hitpkm1')[0].style.display = 'none'
             },3500)
-            
-            setTimeout(()=>{setattack('none')
+             setTimeout(()=>{setattack('none')
             document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },3200)
+            setTimeout(()=>{
+                pokemonNewStatus(newLife())
+            }, 3300)
         }else if(attacking==='agility'){
-            newLife()
             triggerParentUpdate('agility')  
             setTimeout(()=>{
                 document.getElementsByClassName('buff')[0].style.display = 'block'
@@ -65,11 +64,13 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon, pokemonenemy
             document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },1000)
+            setTimeout(()=>{
+                pokemonNewStatus(newLife())
+            }, 3300)
         }else if(attacking==='tackle'){
             triggerParentUpdate('tackle')  
             setTimeout(()=>{
                 document.getElementsByClassName('hitpkm1')[0].style.display = 'block'
-                pokemonNewStatus(newLife())
             },2000)
             setTimeout(()=>{
                 document.getElementsByClassName('hitpkm1')[0].style.display = 'none'
@@ -78,6 +79,9 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon, pokemonenemy
             document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },2000)
+            setTimeout(()=>{
+                pokemonNewStatus(newLife())
+            }, 3300)
         }
         else{
             triggerParentUpdate('none') 

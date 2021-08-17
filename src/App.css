@@ -265,7 +265,7 @@
   position: absolute;
   bottom: 55%;
   right: 33%;
-  border-radius: 55px 10px;
+  border-radius: 35px 10px;
   justify-content: space-between;
   padding: 2px;
   box-shadow: -2px -2px 12px 1px;
@@ -280,7 +280,7 @@
   position: absolute;
   bottom: 10%;
   left: 28%;
-  border-radius: 10px 50px;
+  border-radius: 10px 30px;
   justify-content: space-between;
   padding: 2px;
   box-shadow: -2px -2px 12px 1px;

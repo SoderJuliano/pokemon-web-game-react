@@ -107,7 +107,6 @@ const Battlefild = () => {
         if(shift==2){
             return  <Attacks triggerParentUpdate = {updatePageState} 
             pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
-            pokemonenemy = {pokemonenemy}
             />
         }else{
 
@@ -139,8 +138,11 @@ const Battlefild = () => {
     } 
     const updatePkELife = (state) =>{
         console.log(state)
-        pokemonenemy.Life = (pokemonenemy.Life-state)
-        //sethit(1)
+        if(shift===2){
+            pokemonenemy.Life = (pokemonenemy.Life-state)
+            setShift(1)
+        }
+        
         if(pokemonenemy.Life<=0){
             document.getElementsByClassName('hitpkm1')[0].style.display = 'block'
             document.getElementsByClassName('message')[0].textContent = 'Yes!! We Win!'
