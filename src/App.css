@@ -304,3 +304,9 @@
 .insidepokestatus1 span{
   margin-left: 10px;
 }
+.attackgifE{
+  display: block;
+  position: absolute;
+  top: 30%;
+  right: 30%;
+}

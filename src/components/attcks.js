@@ -5,35 +5,54 @@ import sayAttackPikachu from '../media/pikachu-attack.mp3'
 import sayThunderAttackPikachu from '../media/pikachuThunderAttack.mp3'
 import poiin from "../media/poiin.m4a"
 
-const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
+const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
     const [bntsonud] = useSound(poiin)
     const [pikachuAttacksay] = useSound(sayAttackPikachu)
     const [pikachuThundersay] = useSound(sayThunderAttackPikachu)
     const [hadchanged, setchanged] = useState(false)
-
-    const newLife = () =>{
-        let att = 0;
-        //console.log(mypo)
-        if(attacking ==='thundershock'){
-            setchanged(false)
-            att = (mypokemon.SpA+mypokemon.Spe)+80
-        } if(hadchanged==false && attacking ==='agility'){
-            mypokemon.Spe += 100
-            console.log("speed -> "+mypokemon.Spe)
-            setchanged(true)
-        } if(attacking === 'tackle'){
-            setchanged(false)
-            att = (mypokemon.Atk+mypokemon.Spe)+40
+    let canhit = sessionStorage.getItem('canhit')
+    console.log('myturn '+shift+" canhit "+canhit)
+    
+        const newLife = () =>{
+            let att = 0;
+            console.log("new life "+attacking)
+            if(canhit){
+                if(attacking ==='thundershock' && shift===2){
+                    setchanged(false)
+                    att = (mypokemon.SpA+mypokemon.Spe)+80
+                    console.log("attaque > "+att)
+                    setattack('none')
+                    return att
+                } if(hadchanged==false && attacking ==='agility' && shift===2){
+                    mypokemon.Spe += 100
+                    console.log("speed -> "+mypokemon.Spe)
+                    setchanged(true)
+                    console.log("attaque > "+att)
+                    setattack('none')
+                    return att
+                } if(attacking === 'tackle' && shift===2){
+                    setchanged(false)
+                    att = (mypokemon.Atk+mypokemon.Spe)+40
+                    console.log("attaque > "+att)
+                    setattack('none')
+                    return att
+                }else{
+                    return 0;
+                }
+            }
+            return 0
+            
         }
-        console.log("att > "+att)
-        return att
-    }
     const showBtn = () =>{
         if(hadchanged===true){
 
         }else{
-            return  <button onMouseOver={bntsonud} onMouseDown={pikachuAttacksay} onClick={()=> setattack('agility')}>Agility</button>
+            return  <button onMouseOver={bntsonud} onMouseDown={pikachuAttacksay} onClick={()=> hitEnemy('agility')}>Agility</button>
         }
+    }
+    const hitEnemy = (event) =>{
+       sessionStorage.setItem('canhit', true);
+        setattack(event)
     }
     const attack = () =>{
         if(attacking==='thundershock'){
@@ -44,13 +63,12 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
             setTimeout(()=>{
                 document.getElementsByClassName('hitpkm1')[0].style.display = 'none'
             },3500)
-             setTimeout(()=>{setattack('none')
+            setTimeout(()=>{setattack('none')
             document.getElementsByClassName('message')[0].style.display = 'none'
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
+            if(shift===2){pokemonNewStatus(newLife())}
+            setattack('none')
             },3200)
-            setTimeout(()=>{
-                pokemonNewStatus(newLife())
-            }, 3300)
         }else if(attacking==='agility'){
             triggerParentUpdate('agility')  
             setTimeout(()=>{
@@ -60,12 +78,13 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
                 document.getElementsByClassName('buff')[0].style.display = 'none'
             },2100)
             setTimeout(()=>{
+                if(shift===2){pokemonNewStatus(newLife())}
                 setattack('none')
-            document.getElementsByClassName('message')[0].style.display = 'none'
-            document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
+                document.getElementsByClassName('message')[0].style.display = 'none'
+                document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },1000)
             setTimeout(()=>{
-                pokemonNewStatus(newLife())
+                setattack('none')
             }, 3300)
         }else if(attacking==='tackle'){
             triggerParentUpdate('tackle')  
@@ -80,7 +99,8 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
             document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
             },2000)
             setTimeout(()=>{
-                pokemonNewStatus(newLife())
+                if(shift===2){pokemonNewStatus(newLife())}
+                setattack('none')
             }, 3300)
         }
         else{
@@ -92,9 +112,9 @@ const Attacks = ({triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
         return(
             <div>
                 <dv className="attack-container">
-                    <button onMouseOver={bntsonud} onMouseDown={pikachuThundersay} onClick={()=> setattack('thundershock')}>ThunderShock</button>
+                    <button onMouseOver={bntsonud} onMouseDown={pikachuThundersay} onClick={()=> hitEnemy('thundershock')}>ThunderShock</button>
                    {showBtn()}
-                    <button onMouseOver={bntsonud} onMouseDown={pikachuAttacksay} onClick={()=> setattack('tackle')}>Tackle</button>
+                    <button onMouseOver={bntsonud} onMouseDown={pikachuAttacksay} onClick={()=> hitEnemy('tackle')}>Tackle</button>
                 </dv>
                 {attack()}
             </div>

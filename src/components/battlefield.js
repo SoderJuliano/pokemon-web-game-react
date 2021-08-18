@@ -13,6 +13,8 @@ import Hit from '../media/explosion.gif'
 import buff from '../img/arrowup.gif'
 import {PokeStatus} from './pokemonStatus'
 import pikachudefeated from '../img/pikachudefeated.png'
+import  {EmenyAttack}  from './emenyAtack'
+import IronTail from '../media/iron-tail.jpg'
 
 const Battlefild = () => {
 
@@ -45,25 +47,8 @@ const Battlefild = () => {
         Def: 117,
         Gender: 'famale'
     })
-    const [hit , sethit] = useState(0)
     document.getElementsByClassName('message')[0].style.display = 'block'
    
-    const renderPokemon = () =>{
-
-        if(pokemon.Name==='Pikachu'){
-            return(
-                <div className="pokemon2">
-                    <img onClick={pikachuSay} src={pikachu2} alt="" />
-                    <div className="talk">
-                        <p id='talkMyPokemon'>My turn!</p>
-                    </div>
-                    <img className='buff' src={buff} alt='buffed' />
-                   {myTurn()}
-                </div>
-            )
-        }
-    }
-    
     const pokemonEnemyRender = () =>{
 
         if(pokemonenemy.Name==="Pikachu" && pokemonenemy.Life>0){
@@ -83,7 +68,7 @@ const Battlefild = () => {
 
                 <div className="pokemon">
                     <div className="talk2">
-                        <p>My turn!</p>
+                    <p id='talkEmenyPokemon'>My turn!</p>
                     </div>
                     <img src={pikachudefeated} alt="pokemon" />
                     <img className='hitpkm1' src={Hit} alt="ought!" />
@@ -102,29 +87,22 @@ const Battlefild = () => {
     
     const [shift, setShift] = useState(2)
     const [attack, setAttack] = useState('none')
-
-    const myTurn = () =>{
-        if(shift==2){
-            return  <Attacks triggerParentUpdate = {updatePageState} 
-            pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
-            />
-        }else{
-
-        }
-    }
     
+    const updateShift = (event) =>{
+        setShift(event)
+    } 
     const action = ()=>{
-        if(attack==='thundershock'){
+        if(attack==='thundershock' && shift===2){
             document.getElementsByClassName('message')[0].style.display = 'block'
             document.getElementsByClassName('message')[0].textContent = 'Thundershock pikachu!'
             document.getElementsByClassName('pokemon2')[0].style.display = 'none'
             return <img className='attackgif' src={thundershock} alt='thundeshock!!' />
-        }else if(attack==='agility'){
+        }else if(attack==='agility' && shift===2){
             document.getElementsByClassName('message')[0].style.display = 'block'
             document.getElementsByClassName('message')[0].textContent = 'Agility now!'
             document.getElementsByClassName('pokemon2')[0].style.display = 'none'
             return <img className='attackgif' src={agility} alt="agility!!" />
-        }else if(attack==='tackle'){
+        }else if(attack==='tackle' && shift===2){
             document.getElementsByClassName('message')[0].style.display = 'block'
             document.getElementsByClassName('message')[0].textContent = 'Tackle!'
             document.getElementsByClassName('pokemon2')[0].style.display = 'none'
@@ -135,11 +113,12 @@ const Battlefild = () => {
     }
     const updatePageState = (state) => {
         setAttack(state);
-    } 
+    }
     const updatePkELife = (state) =>{
-        console.log(state)
-        if(shift===2){
+        console.log("Session "+sessionStorage.getItem('canhit'))
+        if(shift===2 && sessionStorage.getItem('canhit')==='true'){
             pokemonenemy.Life = (pokemonenemy.Life-state)
+            sessionStorage.setItem('canhit', false);
             setShift(1)
         }
         
@@ -150,15 +129,38 @@ const Battlefild = () => {
             document.getElementById('talkEmenyPokemon').textContent = 'Pika.....chu.. X.X' 
         }
     }
+    const renderEmenyAttack = () =>{
+        if(shift===1 && pokemonenemy.Life>0 ){
+            console.log('shift 1')
+            
+            setTimeout(()=>{
+                setShift(2)
+
+            }, 2500)
+            return(
+                <EmenyAttack  pokemon={pokemonenemy}/>
+            )
+        }
+    }
     const main = () => {
         return(
             <div>
             <div className="field">
                {pokemonEnemyRender()}
                 <div className="center">
+                   {renderEmenyAttack()}
                     {action()}
                 </div>
-                    {renderPokemon()}
+                <div className="pokemon2">
+                    <img onClick={pikachuSay} src={pikachu2} alt="" />
+                    <div className="talk">
+                        <p id='talkMyPokemon'>My turn!</p>
+                    </div>
+                    <img className='buff' src={buff} alt='buffed' />
+                    <Attacks shift = {shift} triggerParentUpdate = {updatePageState} 
+                        pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
+                    />
+                </div>
                     <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
             </div>
             <audio controls autoPlay={false} muted={false}>

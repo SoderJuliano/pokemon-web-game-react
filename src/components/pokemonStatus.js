@@ -5,7 +5,7 @@ import {BiMaleSign} from 'react-icons/bi'
 import {BiFemaleSign} from 'react-icons/bi'
 
 const PokeStatus = ({pokemon2, pokemon}) =>{
-    console.log(pokemon2.Name)
+    //console.log(pokemon2.Name)
 
     const gender = (n) =>{
         if(n===1){
