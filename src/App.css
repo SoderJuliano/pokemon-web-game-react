@@ -259,7 +259,7 @@
 }
 .pokestatus1{
   display: block;
-  width: 160px;
+  width: 150px;
   height: 80px;
   z-index: 100;
   background-color: rgba(245, 245, 245, 0.292);
@@ -268,13 +268,14 @@
   right: 33%;
   border-radius: 35px 10px;
   justify-content: space-between;
-  padding: 2px;
+  padding: 5px;
   box-shadow: -2px -2px 12px 1px;
   text-align: start;
+  font-size: 12px;
 }
 .pokestatus2{
   display: block;
-  width: 160px;
+  width: 150px;
   height: 80px;
   z-index: 100;
   background-color: rgba(245, 245, 245, 0.292);
@@ -283,9 +284,10 @@
   left: 28%;
   border-radius: 10px 30px;
   justify-content: space-between;
-  padding: 2px;
+  padding: 5px;
   box-shadow: -2px -2px 12px 1px;
   text-align: start;
+  font-size: 12px;
 }
 .pokestatus2 .icon{
   margin-left: 10%;
@@ -313,6 +315,7 @@
 }
 .midle-text{
   font-family: 'Rampart One', cursive;
+  z-index: 5;
 }
 body{
   font-family: 'Klee One', cursive;

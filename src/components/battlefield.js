@@ -49,7 +49,9 @@ const Battlefild = () => {
     })
     document.getElementsByClassName('message')[0].style.display = 'block'
    const updatemypokemonlife =(damage) =>{
-    pokemon.Life -= damage
+       console.log("desconta "+damage)
+    pokemon.Life -= damage/2
+    console.log("pokemon life apos "+pokemon.Life)
    }
     const pokemonEnemyRender = () =>{
 
@@ -89,10 +91,12 @@ const Battlefild = () => {
     
     const [shift, setShift] = useState(2)
     const [attack, setAttack] = useState('none')
-    
-    const updateShift = (event) =>{
-        setShift(event)
-    } 
+    const [midle, setmidle] = useState("Waiting next moves")
+
+    const updateMidle = (x) =>{
+        setmidle(x)
+    }
+     
     const action = ()=>{
         if(attack==='thundershock' && shift===2){
             document.getElementsByClassName('message')[0].style.display = 'block'
@@ -110,14 +114,13 @@ const Battlefild = () => {
             document.getElementsByClassName('pokemon2')[0].style.display = 'none'
             return <img className='attackgif' src={pikachuTacle} alt="tacke!!" />
         }else{
-            return <span className="midle-text">wainting next moves</span>
+            return <span className="midle-text">{midle}</span>
         }
     }
     const updatePageState = (state) => {
         setAttack(state);
     }
     const updatePkELife = (state) =>{
-        console.log("Session "+sessionStorage.getItem('canhit'))
         if(shift===2 && sessionStorage.getItem('canhit')==='true'){
             pokemonenemy.Life = (pokemonenemy.Life-state)
             sessionStorage.setItem('canhit', false);
@@ -140,7 +143,7 @@ const Battlefild = () => {
 
             }, 2500)
             return(
-                <EmenyAttack  pokemon={pokemonenemy} update = {updatemypokemonlife}/>
+                <EmenyAttack  pokemon={pokemonenemy} update = {updatemypokemonlife} midle = {updateMidle}/>
             )
         }
     }
