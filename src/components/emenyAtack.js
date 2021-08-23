@@ -4,9 +4,8 @@ import thundershock from '../media/pikachuThundershock.gif'
 import pikachuTacle from '../media/pikachuTacle.gif'
 import '../App.css'
 
-const EmenyAttack = ({pokemon}) =>{
+const EmenyAttack = ({pokemon, update}) =>{
     let list = [];
-    let looponce = true
    if(pokemon.Name==='Pikachu'){
     list = ['thundershock', 'tackle', 'ironTail'];
    } 
@@ -15,10 +14,13 @@ const EmenyAttack = ({pokemon}) =>{
             const power = list[Math.floor(Math.random() * list.length)]
             console.log(" the power is " +power)
             if(power==='thundershock'){
+                update(100)
                  return (<img id='thundeshock' className='attackgifE' src={thundershock} alt='thundeshock!!' />)
             }else if(power==='tackle'){
+                update(100)
                    return  (<img id='tackle' className='attackgifE' src={pikachuTacle} alt='tackle' />)
             }else if(power==='ironTail'){
+                update(100)
                return (<img id='ironTail'  className='attackgifE' src={IronTail} alt='ironTail' />)
             }else{
                

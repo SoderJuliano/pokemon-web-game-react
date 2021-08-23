@@ -48,7 +48,9 @@ const Battlefild = () => {
         Gender: 'famale'
     })
     document.getElementsByClassName('message')[0].style.display = 'block'
-   
+   const updatemypokemonlife =(damage) =>{
+    pokemon.Life -= damage
+   }
     const pokemonEnemyRender = () =>{
 
         if(pokemonenemy.Name==="Pikachu" && pokemonenemy.Life>0){
@@ -108,7 +110,7 @@ const Battlefild = () => {
             document.getElementsByClassName('pokemon2')[0].style.display = 'none'
             return <img className='attackgif' src={pikachuTacle} alt="tacke!!" />
         }else{
-            return <span>wainting next moves</span>
+            return <span className="midle-text">wainting next moves</span>
         }
     }
     const updatePageState = (state) => {
@@ -138,7 +140,7 @@ const Battlefild = () => {
 
             }, 2500)
             return(
-                <EmenyAttack  pokemon={pokemonenemy}/>
+                <EmenyAttack  pokemon={pokemonenemy} update = {updatemypokemonlife}/>
             )
         }
     }

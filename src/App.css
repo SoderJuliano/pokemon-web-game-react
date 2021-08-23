@@ -205,6 +205,7 @@
   box-shadow: gray 2px 2px 2px;
   font-size: 10px;
   padding: 10px;
+  font-family: 'Rampart One', cursive;
 }
 .attack-container button:hover{
   box-shadow: white 2px 2px 5px;
@@ -309,4 +310,10 @@
   position: absolute;
   top: 30%;
   right: 30%;
+}
+.midle-text{
+  font-family: 'Rampart One', cursive;
+}
+body{
+  font-family: 'Klee One', cursive;
 }
