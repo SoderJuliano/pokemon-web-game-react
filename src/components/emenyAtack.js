@@ -11,31 +11,35 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
    } 
 
     const randomAttack = () => {
+        sessionStorage.setItem("damage", "false")
             const power = list[Math.floor(Math.random() * list.length)]
-            console.log(" the power is " +power)
             if(power==='thundershock'){
                 update(pokemon.SpA+pokemon.Spe+80)
                 midle(pokemon.SpA+pokemon.Spe+80)
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
-                 return (<img id='thundeshock' className='attackgifE' src={thundershock} alt='thundeshock!!' />)
+                 //return (<img id='thundeshock' className='attackgifE' src={thundershock} alt='thundeshock!!' />)
             }else if(power==='tackle'){
+                sessionStorage.setItem("damage", 'true')
                 update(pokemon.Atk+pokemon.Spe+40)
                 midle(pokemon.Atk+pokemon.Spe+40)
+                
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
-                   return  (<img id='tackle' className='attackgifE' src={pikachuTacle} alt='tackle' />)
+                   //return  (<img id='tackle' className='attackgifE' src={pikachuTacle} alt='tackle' />)
             }else if(power==='ironTail'){
+                sessionStorage.setItem("damage", 'true')
                 update(pokemon.SpA+pokemon.Spe+75)
                 midle(pokemon.SpA+pokemon.Spe+75)
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
-               return (<img id='ironTail'  className='attackgifE' src={IronTail} alt='ironTail' />)
+               //return (<img id='ironTail'  className='attackgifE' src={IronTail} alt='ironTail' />)
             }else{
                 update(0)
+                sessionStorage.setItem("damage", 'false')
             }
     }
 

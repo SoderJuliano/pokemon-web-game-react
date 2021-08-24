@@ -11,29 +11,29 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
     const [pikachuThundersay] = useSound(sayThunderAttackPikachu)
     const [hadchanged, setchanged] = useState(false)
     let canhit = sessionStorage.getItem('canhit')
-    console.log('myturn '+shift+" canhit "+canhit)
+   // console.log('myturn '+shift+" canhit "+canhit)
     
         const newLife = () =>{
             let att = 0;
-            console.log("new life "+attacking)
+           // console.log("new life "+attacking)
             if(canhit){
                 if(attacking ==='thundershock' && shift===2){
                     setchanged(false)
                     att = (mypokemon.SpA+mypokemon.Spe)+80
-                    console.log("attaque > "+att)
+                   // console.log("attaque > "+att)
                     setattack('none')
                     return att
                 } if(hadchanged==false && attacking ==='agility' && shift===2){
                     mypokemon.Spe += 100
-                    console.log("speed -> "+mypokemon.Spe)
+                   // console.log("speed -> "+mypokemon.Spe)
                     setchanged(true)
-                    console.log("attaque > "+att)
+                   // console.log("attaque > "+att)
                     setattack('none')
                     return att
                 } if(attacking === 'tackle' && shift===2){
                     setchanged(false)
                     att = (mypokemon.Atk+mypokemon.Spe)+40
-                    console.log("attaque > "+att)
+                   // console.log("attaque > "+att)
                     setattack('none')
                     return att
                 }else{
@@ -57,15 +57,9 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
     const attack = () =>{
         if(attacking==='thundershock'){
             triggerParentUpdate('thundershock')  
-            setTimeout(()=>{
-                document.getElementsByClassName('hitpkm1')[0].style.display = 'block'
-            },2500)
-            setTimeout(()=>{
-                document.getElementsByClassName('hitpkm1')[0].style.display = 'none'
-            },3500)
             setTimeout(()=>{setattack('none')
             document.getElementsByClassName('message')[0].style.display = 'none'
-            document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
+            document.getElementsByClassName('pokemon2')[0].style.display = 'opacity: 100%'
             if(shift===2){pokemonNewStatus(newLife())}
             setattack('none')
             },3200)
@@ -75,28 +69,24 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
                 document.getElementsByClassName('buff')[0].style.display = 'block'
             },1000)
             setTimeout(()=>{
-                document.getElementsByClassName('buff')[0].style.display = 'none'
+                if(mypokemon.Life>0){
+                    document.getElementsByClassName('buff')[0].style.display = 'none'
+                }
             },2100)
             setTimeout(()=>{
                 if(shift===2){pokemonNewStatus(newLife())}
                 setattack('none')
                 document.getElementsByClassName('message')[0].style.display = 'none'
-                document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
+                document.getElementsByClassName('pokemon2')[0].style.display = 'opacity: 100%'
             },1000)
             setTimeout(()=>{
                 setattack('none')
             }, 3300)
         }else if(attacking==='tackle'){
             triggerParentUpdate('tackle')  
-            setTimeout(()=>{
-                document.getElementsByClassName('hitpkm1')[0].style.display = 'block'
-            },2000)
-            setTimeout(()=>{
-                document.getElementsByClassName('hitpkm1')[0].style.display = 'none'
-            },3100)
             setTimeout(()=>{setattack('none')
             document.getElementsByClassName('message')[0].style.display = 'none'
-            document.getElementsByClassName('pokemon2')[0].style.display = 'flex'
+            document.getElementsByClassName('pokemon2')[0].style.display = 'opacity: 100%'
             },2000)
             setTimeout(()=>{
                 if(shift===2){pokemonNewStatus(newLife())}

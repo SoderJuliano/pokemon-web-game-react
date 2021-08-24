@@ -126,7 +126,7 @@
 }
 .buff{
   position: absolute;
-  left: 34%;
+  left: 24%;
   display: none;
 }
 .pokemon2 img{
@@ -252,9 +252,6 @@
   top: 50%;
   border-radius: 25px;
   border: black solid 2px;
-  display: none;
-}
-.hitpkm1{
   display: none;
 }
 .pokestatus1{
