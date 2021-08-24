@@ -64,6 +64,7 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
             setattack('none')
             },3200)
         }else if(attacking==='agility'){
+            sessionStorage.setItem("attack", "agility")
             triggerParentUpdate('agility')  
             setTimeout(()=>{
                 if(mypokemon.Life>0){
@@ -74,6 +75,7 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
             setTimeout(()=>{
                 if(mypokemon.Life>0){
                     if(mypokemon.Life>0){
+                        sessionStorage.setItem("attack", "")
                         document.getElementsByClassName('buff')[0].style.display = 'none'
                     }
                 }

@@ -37,7 +37,8 @@ const Battlefild = () => {
         Gender: 'male'
     })
     const showHit = () =>{
-        if(hit===true){
+        if(hit===true && sessionStorage.getItem("attack")!="agility"){
+            
             return  <img className='hitpkm1' src={Hit} alt="ought!" />
         }
     }
@@ -167,7 +168,7 @@ const Battlefild = () => {
 
     const updatemypokemonlife =(damage) =>{
         
-        if(sessionStorage.getItem("damage")==="true"){
+        if(sessionStorage.getItem("damage")==="true" ){
             
             setTimeout(()=>{
                 document.getElementsByClassName("hitpkm2")[0].style.display = "flex"
@@ -190,7 +191,6 @@ const Battlefild = () => {
 
     const updatePkELife = (state) =>{
         if(shift===2 && sessionStorage.getItem('canhit')==='true'){
-           
             pokemonenemy.Life = (pokemonenemy.Life-state)
             sessionStorage.setItem('canhit', false);
             sessionStorage.setItem("damage", "true")
