@@ -41,10 +41,13 @@ const Battlefild = () => {
             return  <img className='hitpkm1' src={Hit} alt="ought!" />
         }
     }
+  
     const mypokemonrender = () =>{
         if(pokemon.Life>0){
             return(
                 <div className="pokemon2">
+                    <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
+                    <img className='hitpkm2' src={Hit} alt="ought!" />
                     <img onClick={pikachuSay} src={pikachu2} alt="" />
                     <div className="talk">
                         <p id='talkMyPokemon'>My turn!</p>
@@ -53,17 +56,18 @@ const Battlefild = () => {
                     <Attacks shift = {shift} triggerParentUpdate = {updatePageState} 
                         pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
                     />
-                    <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
+                    
                 </div>
             )
         }else{
             return(
                 <div className="pokemon2">
+                <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
                 <img src={mypikachudefeated} alt="" />
                 <div className="talk">
                     <p id='talkMyPokemon'>My turn!</p>
                 </div>
-                <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
+                
             </div>
             )
         }
@@ -164,11 +168,20 @@ const Battlefild = () => {
     const updatemypokemonlife =(damage) =>{
         
         if(sessionStorage.getItem("damage")==="true"){
+            
+            setTimeout(()=>{
+                document.getElementsByClassName("hitpkm2")[0].style.display = "flex"
+            }, 1000)
+            setTimeout(()=>{
+                document.getElementsByClassName("hitpkm2")[0].style.display = "none"
+            }, 2000)
             sessionStorage.setItem("damage", "false")
             sethit(true)
-            pokemon.Life -= damage
-            alert(damage)
-            setShift(2)
+            setTimeout(()=>{
+                pokemon.Life -= damage
+                //alert(damage)
+                setShift(2)
+            }, 3500)
         }
         setTimeout(()=>{
             sethit(false)
@@ -177,6 +190,7 @@ const Battlefild = () => {
 
     const updatePkELife = (state) =>{
         if(shift===2 && sessionStorage.getItem('canhit')==='true'){
+           
             pokemonenemy.Life = (pokemonenemy.Life-state)
             sessionStorage.setItem('canhit', false);
             sessionStorage.setItem("damage", "true")

@@ -16,7 +16,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
             if(power==='thundershock'){
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.SpA+pokemon.Spe+80)
-                midle(pokemon.SpA+pokemon.Spe+80)
+                midle("Your POKEMON loses "+parseInt(pokemon.SpA+pokemon.Spe+80))
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
@@ -24,7 +24,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
             }else if(power==='tackle'){
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.Atk+pokemon.Spe+40)
-                midle(pokemon.Atk+pokemon.Spe+40)
+                midle("Your POKEMON loses "+parseInt(pokemon.Atk+pokemon.Spe+40))
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
@@ -32,7 +32,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
             }else if(power==='ironTail'){
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.SpA+pokemon.Spe+75)
-                midle(pokemon.SpA+pokemon.Spe+75)
+                midle("Your POKEMON loses "+parseInt(pokemon.SpA+pokemon.Spe+75))
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)

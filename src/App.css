@@ -37,6 +37,37 @@
   }
 }
 @media (min-width: 1001px) {
+  .pokestatus1{
+    display: block;
+    width: 150px;
+    height: 80px;
+    z-index: 100;
+    background-color: rgba(245, 245, 245, 0.292);
+    position: absolute;
+    bottom: 55%;
+    right: 33%;
+    border-radius: 35px 10px;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: -2px -2px 12px 1px;
+    text-align: start;
+    font-size: 12px;
+  }
+  .pokestatus2{
+    display: block;
+    width: 150px;
+    height: 80px;
+    z-index: 100;
+    background-color: rgba(245, 245, 245, 0.292);
+    position: absolute;
+    border-radius: 10px 30px;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: -2px -2px 12px 1px;
+    text-align: start;
+    font-size: 12px;
+    right: 62%;
+  }
   .field{
     background-image: url("./img/florestBattleground.png");
     /* Full height */
@@ -80,6 +111,37 @@
   }
 }
 @media (max-width: 1000px) {
+  .pokestatus1{
+    display: block;
+    width: 150px;
+    height: 80px;
+    z-index: 100;
+    background-color: rgba(245, 245, 245, 0.292);
+    position: absolute;
+    border-radius: 35px 10px;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: -2px -2px 12px 1px;
+    text-align: start;
+    font-size: 12px;
+    top: 200px;
+  }
+  .pokestatus2{
+    display: block;
+    width: 150px;
+    height: 80px;
+    z-index: 100;
+    background-color: rgba(245, 245, 245, 0.292);
+    position: absolute;
+    border-radius: 10px 30px;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: -2px -2px 12px 1px;
+    text-align: start;
+    font-size: 12px;
+    margin-top: 100px;
+    margin-right: 250px;
+  }
   .center{
     height: 40px;
     width: 100%;
@@ -254,38 +316,6 @@
   border: black solid 2px;
   display: none;
 }
-.pokestatus1{
-  display: block;
-  width: 150px;
-  height: 80px;
-  z-index: 100;
-  background-color: rgba(245, 245, 245, 0.292);
-  position: absolute;
-  bottom: 55%;
-  right: 33%;
-  border-radius: 35px 10px;
-  justify-content: space-between;
-  padding: 5px;
-  box-shadow: -2px -2px 12px 1px;
-  text-align: start;
-  font-size: 12px;
-}
-.pokestatus2{
-  display: block;
-  width: 150px;
-  height: 80px;
-  z-index: 100;
-  background-color: rgba(245, 245, 245, 0.292);
-  position: absolute;
-  bottom: 10%;
-  left: 28%;
-  border-radius: 10px 30px;
-  justify-content: space-between;
-  padding: 5px;
-  box-shadow: -2px -2px 12px 1px;
-  text-align: start;
-  font-size: 12px;
-}
 .pokestatus2 .icon{
   margin-left: 10%;
 }
@@ -316,4 +346,7 @@
 }
 body{
   font-family: 'Klee One', cursive;
+}
+.hitpkm2{
+  display: none;
 }
