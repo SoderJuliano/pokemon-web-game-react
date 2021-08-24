@@ -42,7 +42,11 @@ const Battlefild = () => {
             return  <img className='hitpkm1' src={Hit} alt="ought!" />
         }
     }
-  
+    const renderAttacks = () =>{
+        return pokemonenemy.Life>0 ? <Attacks shift = {shift} triggerParentUpdate = {updatePageState} 
+        pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
+    /> : ""
+    }
     const mypokemonrender = () =>{
         if(pokemon.Life>0){
             return(
@@ -54,10 +58,7 @@ const Battlefild = () => {
                         <p id='talkMyPokemon'>My turn!</p>
                     </div>
                     <img className='buff' src={buff} alt='buffed' />
-                    <Attacks shift = {shift} triggerParentUpdate = {updatePageState} 
-                        pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
-                    />
-                    
+                    {renderAttacks()}
                 </div>
             )
         }else{
