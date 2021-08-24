@@ -58,7 +58,7 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
         if(attacking==='thundershock'){
             triggerParentUpdate('thundershock')  
             setTimeout(()=>{setattack('none')
-            document.getElementsByClassName('message')[0].style.display = 'none'
+            document.getElementsByClassName('message')[0].style.display = ''
             document.getElementsByClassName('pokemon2')[0].style.display = 'opacity: 100%'
             if(shift===2){pokemonNewStatus(newLife())}
             setattack('none')
@@ -66,17 +66,22 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
         }else if(attacking==='agility'){
             triggerParentUpdate('agility')  
             setTimeout(()=>{
-                document.getElementsByClassName('buff')[0].style.display = 'block'
+                if(mypokemon.Life>0){
+                    document.getElementsByClassName('buff')[0].style.display = 'block'
+                }
+               
             },1000)
             setTimeout(()=>{
                 if(mypokemon.Life>0){
-                    document.getElementsByClassName('buff')[0].style.display = 'none'
+                    if(mypokemon.Life>0){
+                        document.getElementsByClassName('buff')[0].style.display = 'none'
+                    }
                 }
             },2100)
             setTimeout(()=>{
                 if(shift===2){pokemonNewStatus(newLife())}
                 setattack('none')
-                document.getElementsByClassName('message')[0].style.display = 'none'
+                document.getElementsByClassName('message')[0].style.display = ''
                 document.getElementsByClassName('pokemon2')[0].style.display = 'opacity: 100%'
             },1000)
             setTimeout(()=>{
@@ -85,7 +90,7 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
         }else if(attacking==='tackle'){
             triggerParentUpdate('tackle')  
             setTimeout(()=>{setattack('none')
-            document.getElementsByClassName('message')[0].style.display = 'none'
+            document.getElementsByClassName('message')[0].style.display = ''
             document.getElementsByClassName('pokemon2')[0].style.display = 'opacity: 100%'
             },2000)
             setTimeout(()=>{

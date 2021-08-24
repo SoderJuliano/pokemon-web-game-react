@@ -14,6 +14,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
         sessionStorage.setItem("damage", "false")
             const power = list[Math.floor(Math.random() * list.length)]
             if(power==='thundershock'){
+                sessionStorage.setItem("damage", 'true')
                 update(pokemon.SpA+pokemon.Spe+80)
                 midle(pokemon.SpA+pokemon.Spe+80)
                 setTimeout(()=>{
@@ -24,7 +25,6 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.Atk+pokemon.Spe+40)
                 midle(pokemon.Atk+pokemon.Spe+40)
-                
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
@@ -53,7 +53,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
     }
     const render=()=>{
         return(
-           main()
+           sessionStorage.getItem("damage")==="true"? main(): ''
         )
     }
     return render()

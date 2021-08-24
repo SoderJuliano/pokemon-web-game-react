@@ -164,10 +164,11 @@ const Battlefild = () => {
     const updatemypokemonlife =(damage) =>{
         
         if(sessionStorage.getItem("damage")==="true"){
+            sessionStorage.setItem("damage", "false")
             sethit(true)
             pokemon.Life -= damage
+            alert(damage)
             setShift(2)
-            sessionStorage.setItem("damage", "false")
         }
         setTimeout(()=>{
             sethit(false)
