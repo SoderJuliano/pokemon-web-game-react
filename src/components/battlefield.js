@@ -42,11 +42,7 @@ const Battlefild = () => {
             return  <img className='hitpkm1' src={Hit} alt="ought!" />
         }
     }
-    const renderAttacks = () =>{
-        return pokemonenemy.Life>0 ? <Attacks shift = {shift} triggerParentUpdate = {updatePageState} 
-        pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
-    /> : ""
-    }
+  
     const mypokemonrender = () =>{
         if(pokemon.Life>0){
             return(
@@ -58,14 +54,18 @@ const Battlefild = () => {
                         <p id='talkMyPokemon'>My turn!</p>
                     </div>
                     <img className='buff' src={buff} alt='buffed' />
-                    {renderAttacks()}
+                    <Attacks shift = {shift} triggerParentUpdate = {updatePageState} 
+                        pokemonNewStatus = {updatePkELife} mypokemon = {pokemon}
+                        emenyLife = {pokemonenemy.Life}
+                    />
+                    
                 </div>
             )
-        }else{
+        }else{ console.log("dead")
             return(
                 <div className="pokemon2">
                 <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
-                <img src={mypikachudefeated} alt="" />
+                <img className="defeated" src={mypikachudefeated} alt="" />
                 <div className="talk">
                     <p id='talkMyPokemon'>My turn!</p>
                 </div>
@@ -142,7 +142,9 @@ const Battlefild = () => {
     const updateMidle = (x) =>{
         setmidle(x)
     }
-     
+     if(!pokemonenemy.Life>0 && !pokemon.Life>0){
+         shift(0)
+     }
     const action = ()=>{
         if(attack==='thundershock' && shift===2){
             document.getElementsByClassName('message')[0].style.display = 'block'

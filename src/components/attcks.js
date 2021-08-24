@@ -5,7 +5,7 @@ import sayAttackPikachu from '../media/pikachu-attack.mp3'
 import sayThunderAttackPikachu from '../media/pikachuThunderAttack.mp3'
 import poiin from "../media/poiin.m4a"
 
-const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
+const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon, emenyLife}) =>{
     const [bntsonud] = useSound(poiin)
     const [pikachuAttacksay] = useSound(sayAttackPikachu)
     const [pikachuThundersay] = useSound(sayThunderAttackPikachu)
@@ -118,7 +118,7 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon}) =>{
         )
     }
     const render = () =>{
-        return main()
+        return emenyLife ? main(): ''
     }
     return render()
 }
