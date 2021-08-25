@@ -67,6 +67,7 @@
     text-align: start;
     font-size: 12px;
     right: 62%;
+    bottom: 8%;
   }
   .field{
     background-image: url("./img/florestBattleground.png");
@@ -354,4 +355,5 @@ body{
 }
 .hitpkm2{
   display: none;
+  position: absolute;
 }

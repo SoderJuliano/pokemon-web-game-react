@@ -209,7 +209,6 @@ const Battlefild = () => {
     }
     const renderEmenyAttack = () =>{
         if(shift===1 && pokemonenemy.Life>0 ){
-            console.log('shift 1')
             setTimeout(()=>{
                 setShift(2)
             }, 4000)
