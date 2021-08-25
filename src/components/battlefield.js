@@ -185,6 +185,7 @@ const Battlefild = () => {
                     title: "Your pokemon lose "+damage,
                     timer: 2000,
                     timerProgressBar: true,
+                    customClass: 'swal-wide',
                 })
             }, 2100)
             sessionStorage.setItem("damage", "false")
@@ -192,7 +193,7 @@ const Battlefild = () => {
             setTimeout(()=>{
                 pokemon.Life -= damage
                 setShift(2)
-            }, 3500)
+            }, 3000)
         }
         setTimeout(()=>{
             sethit(false)

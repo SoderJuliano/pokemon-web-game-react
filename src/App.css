@@ -110,6 +110,9 @@
   }
 }
 @media (max-width: 1000px) {
+  .swal-wide{
+    width:180px !important;
+  }
   .pokestatus1{
     display: block;
     width: 150px;
@@ -148,7 +151,7 @@
   .field{
     background-image: url("./img/florestBattleground.png");
     /* Full height */
-    padding-top: 20%;
+    padding-top: 35%;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -166,10 +169,6 @@
     margin: auto;
     margin-right: 40%;
     z-index: 5;
-  }
-  .pokemon2 .defeated{
-    display: block !important;
-    z-index: 3;
   }
   .pokemon{
     margin-left: 50%;
@@ -354,4 +353,8 @@ body{
 .hitpkm2{
   display: none;
   position: absolute;
+}
+.pokemon2 .defeated{
+  display: block !important;
+  z-index: 3;
 }
