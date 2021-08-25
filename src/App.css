@@ -171,7 +171,7 @@
   }
   .pokemon2 .defeated{
     display: block !important;
-    z-index: 5;
+    z-index: 3;
   }
   .pokemon{
     margin-left: 50%;

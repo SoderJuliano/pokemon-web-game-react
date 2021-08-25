@@ -17,9 +17,14 @@ import  {EmenyAttack}  from './emenyAtack'
 import IronTail from '../media/iron-tail.jpg'
 import mypikachudefeated from "../img/mypikachudefeated.png"
 import pikachuAttack from "../media/pikachuAttack.gif"
+import Swal from 'sweetalert2'
 
 const Battlefild = () => {
-    
+
+    const [hit, sethit] = useState(false)
+    const [shift, setShift] = useState(2)
+    const [attack, setAttack] = useState('none')
+    const [midle, setmidle] = useState("Waiting next moves")
 
     const [pikachuSay] = useSound(sayPikachu)
     const [pokemon] = useState({
@@ -35,6 +40,20 @@ const Battlefild = () => {
         Atk: 131,
         Def: 117,
         Gender: 'male'
+    })
+    const [pokemonenemy] = useState({
+        Name: 'Pikachu',
+        Id: 25,
+        Type: 'eletric',
+        Level: 100,
+        HP: 2110,
+        Life: 2110,
+        SpA: 199,
+        SpD: 136,
+        Spe: 206,
+        Atk: 131,
+        Def: 117,
+        Gender: 'famale'
     })
     const showHit = () =>{
         if(hit===true && sessionStorage.getItem("attack")!="agility"){
@@ -74,20 +93,7 @@ const Battlefild = () => {
             )
         }
     }
-    const [pokemonenemy] = useState({
-        Name: 'Pikachu',
-        Id: 25,
-        Type: 'eletric',
-        Level: 100,
-        HP: 2110,
-        Life: 2110,
-        SpA: 199,
-        SpD: 136,
-        Spe: 206,
-        Atk: 131,
-        Def: 117,
-        Gender: 'famale'
-    })
+  
     document.getElementsByClassName('message')[0].style.display = 'block'
    
     const pokemonEnemyRender = () =>{
@@ -134,10 +140,7 @@ const Battlefild = () => {
         }
 
     }
-    const [hit, sethit] = useState(false)
-    const [shift, setShift] = useState(2)
-    const [attack, setAttack] = useState('none')
-    const [midle, setmidle] = useState("Waiting next moves")
+   
 
     const updateMidle = (x) =>{
         setmidle(x)
@@ -175,15 +178,19 @@ const Battlefild = () => {
             
             setTimeout(()=>{
                 document.getElementsByClassName("hitpkm2")[0].style.display = "flex"
-            }, 1000)
+            }, 1500)
             setTimeout(()=>{
                 document.getElementsByClassName("hitpkm2")[0].style.display = "none"
-            }, 2000)
+                Swal.fire({
+                    title: "Your pokemon lose "+damage,
+                    timer: 2000,
+                    timerProgressBar: true,
+                })
+            }, 2100)
             sessionStorage.setItem("damage", "false")
             sethit(true)
             setTimeout(()=>{
                 pokemon.Life -= damage
-                //alert(damage)
                 setShift(2)
             }, 3500)
         }
@@ -211,7 +218,7 @@ const Battlefild = () => {
         if(shift===1 && pokemonenemy.Life>0 ){
             setTimeout(()=>{
                 setShift(2)
-            }, 4000)
+            }, 5000)
             return(
                 <EmenyAttack  pokemon={pokemonenemy} update = {updatemypokemonlife} midle = {updateMidle}/>
             )

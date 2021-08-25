@@ -11,12 +11,13 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
    } 
 
     const randomAttack = () => {
+        
         sessionStorage.setItem("damage", "false")
             const power = list[Math.floor(Math.random() * list.length)]
             if(power==='thundershock'){
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.SpA+pokemon.Spe+80)
-                midle("Your POKEMON loses "+parseInt(pokemon.SpA+pokemon.Spe+80))
+                midle("Emeny "+pokemon.Name+" attack!")
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
@@ -24,7 +25,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
             }else if(power==='tackle'){
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.Atk+pokemon.Spe+40)
-                midle("Your POKEMON loses "+parseInt(pokemon.Atk+pokemon.Spe+40))
+                midle("Emeny "+pokemon.Name+" attack!")
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
@@ -32,7 +33,7 @@ const EmenyAttack = ({pokemon, update, midle}) =>{
             }else if(power==='ironTail'){
                 sessionStorage.setItem("damage", 'true')
                 update(pokemon.SpA+pokemon.Spe+75)
-                midle("Your POKEMON loses "+parseInt(pokemon.SpA+pokemon.Spe+75))
+                midle("Emeny "+pokemon.Name+" attack!")
                 setTimeout(()=>{
                     midle("Your time!")
                 },3000)
