@@ -358,3 +358,6 @@ body{
   display: block !important;
   z-index: 3;
 }
+.restart{
+  z-index: 10;
+}

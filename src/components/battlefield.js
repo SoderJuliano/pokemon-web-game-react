@@ -54,13 +54,18 @@ const Battlefild = () => {
         Def: 117,
         Gender: 'famale'
     })
+
+    const restart = () => {
+        return pokemonenemy.Life<0 || pokemon.Life<0 ? <button className="restart" onClick={()=>{window.location.reload()}}>restart</button> : ""
+    }
+
     const showHit = () =>{
         if(hit===true && sessionStorage.getItem("attack")!=="agility"){
             
             return  <img className='hitpkm1' src={Hit} alt="ought!" />
         }
     }
-  
+    
     const mypokemonrender = () =>{
         if(pokemon.Life>0){
             return(
@@ -232,6 +237,7 @@ const Battlefild = () => {
                         <div className="center">
                             {renderEmenyAttack()}
                             {action()}
+                            {restart()}
                         </div>
                     {mypokemonrender()}
                             
