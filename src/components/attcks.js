@@ -51,8 +51,11 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon, emeny
         }
     }
     const hitEnemy = (event) =>{
-       sessionStorage.setItem('canhit', true);
-        setattack(event)
+        if(sessionStorage.getItem("canhit")!=="true"){
+            sessionStorage.setItem('canhit', true);
+            setattack(event)
+        }
+      
     }
     const attack = () =>{
         if(attacking==='thundershock'){

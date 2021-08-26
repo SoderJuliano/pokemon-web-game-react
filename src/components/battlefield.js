@@ -67,7 +67,7 @@ const Battlefild = () => {
     }
     
     const mypokemonrender = () =>{
-        if(pokemon.Life>0){
+        if(pokemon.Life>0 && shift===2){
             return(
                 <div className="pokemon2">
                     <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
@@ -84,7 +84,21 @@ const Battlefild = () => {
                     
                 </div>
             )
-        }else{ console.log("dead")
+        }else if(pokemon.Life>0 && shift!==2){
+            return(
+                <div className="pokemon2">
+                    <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
+                    <img className='hitpkm2' src={Hit} alt="ought!" />
+                    <img onClick={pikachuSay} src={pikachu2} alt="" />
+                    <div className="talk">
+                        <p id='talkMyPokemon'>My turn!</p>
+                    </div>
+                    <img className='buff' src={buff} alt='buffed' />
+                    
+                </div>
+            )
+        }
+        else{ console.log("dead")
             return(
                 <div className="pokemon2">
                 <PokeStatus className='pokestatus-div2' pokemon2 = {pokemon}  pokemon = {pokemonenemy}/>
@@ -210,7 +224,6 @@ const Battlefild = () => {
             sessionStorage.setItem('canhit', false);
             sessionStorage.setItem("damage", "true")
             setShift(1)
-
         }
         
         if(pokemonenemy.Life<=0){
