@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react'
+import React, {useState} from 'react'
 import pikachu from '../img/pikachu1.gif'
 import pikachu2 from '../img/pikachu2.gif'
 import { Attacks } from './attcks'
@@ -14,7 +14,6 @@ import buff from '../img/arrowup.gif'
 import {PokeStatus} from './pokemonStatus'
 import pikachudefeated from '../img/pikachudefeated.png'
 import  {EmenyAttack}  from './emenyAtack'
-import IronTail from '../media/iron-tail.jpg'
 import mypikachudefeated from "../img/mypikachudefeated.png"
 import pikachuAttack from "../media/pikachuAttack.gif"
 import Swal from 'sweetalert2'
@@ -56,7 +55,7 @@ const Battlefild = () => {
         Gender: 'famale'
     })
     const showHit = () =>{
-        if(hit===true && sessionStorage.getItem("attack")!="agility"){
+        if(hit===true && sessionStorage.getItem("attack")!=="agility"){
             
             return  <img className='hitpkm1' src={Hit} alt="ought!" />
         }

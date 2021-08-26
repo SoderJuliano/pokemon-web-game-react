@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react'
+import React, {useState} from 'react'
 import "../App.css"
 import useSound from 'use-sound';
 import sayAttackPikachu from '../media/pikachu-attack.mp3'
@@ -23,7 +23,7 @@ const Attacks = ({shift, triggerParentUpdate, pokemonNewStatus, mypokemon, emeny
                    // console.log("attaque > "+att)
                     setattack('none')
                     return att
-                } if(hadchanged==false && attacking ==='agility' && shift===2){
+                } if(hadchanged===false && attacking ==='agility' && shift===2){
                     mypokemon.Spe += 100
                    // console.log("speed -> "+mypokemon.Spe)
                     setchanged(true)

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import '../App.css'
 import {CgPokemon} from "react-icons/cg"
 import {BiMaleSign} from 'react-icons/bi'

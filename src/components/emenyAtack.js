@@ -1,7 +1,4 @@
-import React, {Component, useState} from 'react'
-import IronTail from '../media/ironTail.gif'
-import thundershock from '../media/pikachuThundershock.gif'
-import pikachuTacle from '../media/pikachuTacle.gif'
+import React from 'react'
 import '../App.css'
 
 const EmenyAttack = ({pokemon, update, midle}) =>{
