@@ -11,10 +11,10 @@ const PokeStatus = ({pokemon2, pokemon}) =>{
     let emenylife = pokemon.Life;
 
     if(pokemon2.Life<0){
-        mylife = "Defeted"
+        mylife = "Defeated"
     }
     if(pokemon.Life<0){
-        emenylife = "Defeted"
+        emenylife = "Defeated"
     }
     const gender = (n) =>{
         if(n===1){
