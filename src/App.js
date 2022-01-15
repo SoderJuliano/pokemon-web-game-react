@@ -1,10 +1,11 @@
 import './App.css';
 import {First} from './FirstScreen';
+import { Cadastro } from './cadastro/Cadastro';
 
 function App() {
   return (
     <div className="App">
-      <First />
+        <Cadastro />
     </div>
   );
 }

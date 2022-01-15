@@ -1,0 +1,10 @@
+input:focus{
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+    z-index: 10;
+    outline: none;
+    padding-left: 70px;
+}
