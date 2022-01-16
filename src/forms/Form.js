@@ -19,22 +19,38 @@ const Form = (form) =>{
         fontSize : "16px",
         backgroundColor: "transparent"
     }
+    const primaryButtom = {
+        width: "200px",
+        padding: "10px",
+        backgroundColor: "green",
+        borderRadius: "5px"
+    }
     const action = () => {
         if(form.title=="CADASTRO!"){
            cadastro()
         }
         function cadastro () {
             let pokemon = {
-                "name" : document.getElementById("input-"+form.campos[0]).value,
+                "tipo": "grass",
+                "nome" : document.getElementById("input-"+form.campos[0]).value,
                 "hp" : document.getElementById("input-"+form.campos[1]).value,
-                "attack" : document.getElementById("input-"+form.campos[2]).value,
-                "defence" : document.getElementById("input-"+form.campos[3]).value,
-                "super-attack" : document.getElementById("input-"+form.campos[4]).value,
-                "super-defence" : document.getElementById("input-"+form.campos[5]).value,
-                "speed" : document.getElementById("input-"+form.campos[6]).value
+                "atk" : document.getElementById("input-"+form.campos[2]).value,
+                "def" : document.getElementById("input-"+form.campos[3]).value,
+                "spa" : document.getElementById("input-"+form.campos[4]).value,
+                "spd" : document.getElementById("input-"+form.campos[5]).value,
+                "spe" : document.getElementById("input-"+form.campos[6]).value
             }
-            console.log(pokemon)
+            alert(JSON.stringify(pokemon))
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(pokemon)
+            };
+            fetch('http://localhost:8081/pokemons/cadastrar', requestOptions)
+                .then(response => response.json())
+                .then(data => console.log(data));
         }
+
     }
 
     const [dislplay, setDisplay] = useState("")
@@ -47,7 +63,7 @@ const Form = (form) =>{
     const renderarray = () =>{
         let render = []
         for (let index = 0; index < form.campos.length; index++) {
-            render.push(<><p id={'p-' + form.campos[index]}>{form.campos[index]}</p><input onBlur={() => {setDisplay('p-' + form.campos[index])}} id={'input-' + form.campos[index]} style={input} type="text" /></>
+            render.push(<div  key={index}><p id={'p-' + form.campos[index]}>{form.campos[index]}</p><input onBlur={() => {setDisplay('p-' + form.campos[index])}} id={'input-' + form.campos[index]} style={input} type="text" /></div>
             )}
         return render;
     }
@@ -56,7 +72,7 @@ const Form = (form) =>{
             <h1>{form.title}</h1>
            {renderarray()}
            {showp()}
-           <button onClick={()=>{action()}}>Cadastrar</button>
+           <button style={primaryButtom} onClick={()=>{action()}}>Cadastrar</button>
         </div>
     )
 }

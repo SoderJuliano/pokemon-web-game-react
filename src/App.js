@@ -1,5 +1,4 @@
 import './App.css';
-import {First} from './FirstScreen';
 import { Cadastro } from './cadastro/Cadastro';
 
 function App() {

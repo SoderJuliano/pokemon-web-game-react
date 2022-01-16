@@ -1,6 +1,7 @@
 import react from "react";
 import poke from '../media/bad-charizard.png'
 import { Form } from "../forms/Form";
+import '../forms/form.css'
 
 const Cadastro = () =>{
 
@@ -37,7 +38,7 @@ const Cadastro = () =>{
                   <Form title="CADASTRO!" campos={campos}/>
                 </div>
                 <div style={halfmain}>
-                    <img style={imgstyle} src={poke} alt="" />
+                    <img className="right-img" style={imgstyle} src={poke} alt="" />
                 </div>
             </div>
         )

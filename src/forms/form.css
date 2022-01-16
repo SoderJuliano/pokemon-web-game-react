@@ -8,3 +8,10 @@ input:focus{
     outline: none;
     padding-left: 70px;
 }
+@media screen and (min-width: 700px) {
+    .right-img{
+        margin-top: 0px !important;
+        filter: grayscale(30%);
+        -webkit-filter: grayscale(30%);
+}
+}
