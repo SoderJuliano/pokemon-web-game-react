@@ -30,7 +30,8 @@ const Cadastro = () =>{
         "Def",
         "SpA",
         "SpD",
-        "Spe"
+        "Spe",
+        "type"
     ]
         return(
             <div style={main}>

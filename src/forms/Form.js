@@ -31,7 +31,7 @@ const Form = (form) =>{
         }
         function cadastro () {
             let pokemon = {
-                "tipo": "grass",
+                "tipo": document.getElementById("input-"+form.campos[7]).value,
                 "nome" : document.getElementById("input-"+form.campos[0]).value,
                 "hp" : document.getElementById("input-"+form.campos[1]).value,
                 "atk" : document.getElementById("input-"+form.campos[2]).value,

@@ -4,7 +4,7 @@ import {Page} from './components/listagem/listPage'
 
 const Main = () =>{
 
-    const [state, setState] = useState(1)
+    const [state, setState] = useState(2)
 
     const render = () =>{
         switch (state) {
