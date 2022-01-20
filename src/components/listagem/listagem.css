@@ -1,0 +1,77 @@
+.card{
+    margin: 10% auto;
+    width: 250px;
+    height: 470px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.card-top{
+    padding: 0;
+    width: 100%;
+    height: 200px;
+    background-color: wheat;
+}
+.card-bottom{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+img{
+    position: relative;
+    margin-top: -80px;
+    width: 250px;
+}
+.card-body{
+    padding: 20px;
+    margin-top: -20px;
+    background-color: white;
+}
+.power:first-child{
+    width: 200px;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 40px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.power:nth-child(2){
+    width: 200px;
+    margin-top: 80px;
+    position: absolute;
+    margin-left: 40px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.power:nth-child(3){
+    width: 200px;
+    margin-top: 120px;
+    position: absolute;
+    margin-left: 40px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.power{
+    padding: 5px;
+    background-color: #14ffa7;
+    box-shadow: #ff7214 -2px 1px 10px 1px;
+}
+.power:hover{
+    border: 3px solid #39ff14;
+    background-color: #ff7214;
+    box-shadow: #39ff14 -2px -2px 15px 2px;
+}
