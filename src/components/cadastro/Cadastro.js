@@ -1,5 +1,5 @@
 import react from "react";
-import poke from '../media/bad-charizard.png'
+import poke from '../../media/bad-charizard.png'
 import { Form } from "../forms/Form";
 import '../forms/form.css'
 

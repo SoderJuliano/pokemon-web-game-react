@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Cadastro } from './cadastro/Cadastro';
-import {Page} from './components/listagem/listPage'
+import { Cadastro } from '../cadastro/Cadastro';
+import {Page} from '../listagem/listPage'
 
 const Main = () =>{
 
@@ -11,7 +11,7 @@ const Main = () =>{
             case 2:
                 return <Cadastro />
                 break;
-            case 2:
+            case 3:
                 
                 break;
             default:
