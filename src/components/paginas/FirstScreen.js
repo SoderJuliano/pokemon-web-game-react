@@ -1,4 +1,4 @@
-import {Battlefild} from '../battlefield'
+import {Battlefild} from './battlefield'
 import React, {useState} from 'react'
 import { Abertura } from '../opening'
 

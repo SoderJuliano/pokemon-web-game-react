@@ -1,6 +1,6 @@
 import sample from '../media/pkmvideo.mp4';
 import '../App.css'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {GoUnmute} from "react-icons/go"
 import {GoMute} from 'react-icons/go'
 

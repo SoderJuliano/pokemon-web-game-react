@@ -1,7 +1,8 @@
-import react from "react";
+import React from "react";
 import poke from '../../media/bad-charizard.png'
 import { Form } from "../forms/Form";
 import '../forms/form.css'
+import {BsArrow90DegLeft} from 'react-icons/bs'
 
 const Cadastro = () =>{
 
@@ -33,9 +34,17 @@ const Cadastro = () =>{
         "Spe",
         "type"
     ]
+    const voltaricon = {
+        position: "absolute",
+        left: "10px"
+    }
         return(
             <div style={main}>
                 <div style={halfmain}>
+                    <div  style={voltaricon}>
+                        <BsArrow90DegLeft fontSize={"40px"}/>Voltar
+                    </div>
+                    
                   <Form title="CADASTRO!" campos={campos}/>
                 </div>
                 <div style={halfmain}>

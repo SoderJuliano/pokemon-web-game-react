@@ -1,4 +1,5 @@
 import { Card } from "./card"
+import React from "react"
 
 const Page = () =>{
 

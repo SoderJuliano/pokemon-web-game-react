@@ -1,11 +1,10 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { Cadastro } from '../cadastro/Cadastro';
 import {Page} from '../listagem/listPage'
 
 const Main = () =>{
 
     const [state, setState] = useState(2)
-
     const render = () =>{
         switch (state) {
             case 2:

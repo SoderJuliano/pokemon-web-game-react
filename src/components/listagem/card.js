@@ -1,5 +1,6 @@
 import pokemonIMG from '../../media/bad-charizard.png'
 import './listagem.css'
+import React from 'react'
 
 const Card = () => {
 

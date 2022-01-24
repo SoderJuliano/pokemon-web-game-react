@@ -1,21 +1,21 @@
 import React, {useState} from 'react'
-import pikachu from '../img/pikachu1.gif'
-import pikachu2 from '../img/pikachu2.gif'
-import { Attacks } from './attcks'
-import "../App.css"
+import pikachu from '../../img/pikachu1.gif'
+import pikachu2 from '../../img/pikachu2.gif'
+import { Attacks } from '../attcks'
+import "../../App.css"
 import useSound from 'use-sound';
-import sayPikachu from '../media/pikachu.mp3';
-import thundershock from '../media/pikachuThundershock.gif'
-import agility from '../media/pikachuAgility.gif'
-import pikachuTacle from '../media/pikachuTacle.gif'
-import themesong from '../media/pkmsong.mp3'
-import Hit from '../media/explosion.gif'
-import buff from '../img/arrowup.gif'
-import {PokeStatus} from './pokemonStatus'
-import pikachudefeated from '../img/pikachudefeated.png'
-import  {EmenyAttack}  from './emenyAtack'
-import mypikachudefeated from "../img/mypikachudefeated.png"
-import pikachuAttack from "../media/pikachuAttack.gif"
+import sayPikachu from '../../media/pikachu.mp3';
+import thundershock from '../../media/pikachuThundershock.gif'
+import agility from '../../media/pikachuAgility.gif'
+import pikachuTacle from '../../media/pikachuTacle.gif'
+import themesong from '../../media/pkmsong.mp3'
+import Hit from '../../media/explosion.gif'
+import buff from '../../img/arrowup.gif'
+import {PokeStatus} from '../pokemonStatus'
+import pikachudefeated from '../../img/pikachudefeated.png'
+import  {EmenyAttack}  from '../emenyAtack'
+import mypikachudefeated from "../../img/mypikachudefeated.png"
+import pikachuAttack from "../../media/pikachuAttack.gif"
 import Swal from 'sweetalert2'
 
 const Battlefild = () => {
