@@ -1,3 +1,14 @@
+## Hi there!
+
+My name is Juliano Soder and I made this game, it's a pokemon game. I want to make clear that this game is not an official pokemon game and this company is not related to Nintendo or Pokemon. Of course, in order to make this game, I had to use some copyrights of the original Pokemon video games, like the name of the characters and their pokemons.
+
+I made this game because I am a big fan of Pokemon and wanted to create my own version of a Pokemon game. In order to avoid copyright issues, I made a new Pokemon world with new characters and new pokemons. The story of the video game is set in the Kanto region, but it has nothing to do with the original one.
+
+I hope you enjoy playing my video game as much as I enjoyed creating it.
+
+In order to play here go to: https://julianosoderpokemonbattle.netlify.app/ .
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
